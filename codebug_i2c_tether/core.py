@@ -78,6 +78,16 @@ class CodeBug(codebug_i2c_tether.codebug_i2c.CodeBugI2CMaster):
 
         """
         self.set_bulk(0, (0,)*5)
+        
+    def fill(self):
+        """Sets all the LED's to on.
+
+            >>> with CodeBug() as codebug:
+            ...     codebug.fill()
+            ...
+
+        """
+        self.set_bulk(0, (31,)*5)             
 
     def set_row(self, row, val):
         """Sets a row of LEDs on CodeBug.
